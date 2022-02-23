@@ -79,11 +79,27 @@ $ npm run start
 
 ## Ideas
 
-// 
-From my personal view , I see that the modelling can be changed based on the type of database (Relational,NOSQL,Graph ..) used , and if there was a pricing plan  we should consider to make that so we have the best performance with the best price .
+From my personal view , I see that the modelling can be changed based on the type of database (Relational,NOSQL,Graph ..) used , and if there was a pricing plan that  we should consider so we make the modelling based ob the performance with the best price .
 And also We should consider what is the project aim .
 
-//
+
+The thing that appealed for me the most is the three models (Attribute,AttributeValue,AssignnedAttribute) , On my understanding we have attributes for products type (Attribute), and we want to consider the case when we have special attributes for the product that are out of product type scope so we made the model (AssignedAttribute) , still I have a difficulty understanding why we used three models for that , I hope I'm not missing something but I believe having only the Attribute Value model and adding fields to it if needed would be sufficient .
+
+
+In our models we are embedding docuemnt on others to define them (for example ProductType om the Porduct model) , and that can lead to having large documents which can cause to problems of different ways , a way to solve that is to use the subset pattern to only access data which is required and that data can lead us to the whole document if we want .
+(based on mongodb manual 
+ https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-one-relationships-between-documents/)
+
+## Difficulties
+
+I Couldn't find a suitable way to set multiple types for the field Type on the Attribute model , beside the Mixed type which can accept any type .
+
+
+I might had less time of debugging so I hope there will be no bugs there.
+
+
+Because the project is small I didn't use the typical controllers or middlewares on the backend .
+
 However , the most thing that appealed for me the most is three models (Attribute,AttributeValue,AssignnedAttribute) , On my understanding
 we have attributes for products type (Attribute), and we want to consider the case when we have special attributes for the product that are out of product type scope so we made the model (AssignedAttribute) , still if I have a difficulty understanding why used three models for that , I hope I'm not missing something but it I believe having only Attribute Value and adding properites to this model in needed so would be sufficient .
 
