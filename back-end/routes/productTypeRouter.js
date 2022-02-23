@@ -76,7 +76,7 @@ productTypeRouter.post('/update',(req,res)=>{
 
   ProductType.findOne({name:req.body.name})
        .then(data => {
-        if(data){
+        if(data && data._id!=req.body.id){
           res.json({
             type:"error",
             message:"A productType with this name already exist"
@@ -120,7 +120,7 @@ productTypeRouter.post('/delete',(req,res)=>{
         )
         .catch(err => 
           {
-            console.log(err)
+            console.log('err '+err)
             res.json({
               type:"error",
               message:"Something went wrong!"

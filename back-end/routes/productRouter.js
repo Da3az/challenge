@@ -59,7 +59,7 @@ productRouter.post('/new',(req,res)=>{
 productRouter.post('/update',(req,res)=>{
   Product.findOne({name:req.body.name})
        .then(data => {
-        if(data){
+        if(data && data._id!=req.body.id){
           res.json({
             type:"error",
             message:"A product with this name already exist"
