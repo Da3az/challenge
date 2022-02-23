@@ -100,11 +100,3 @@ I might had less time of debugging so I hope there will be no bugs there.
 
 Because the project is small I didn't use the typical controllers or middlewares on the backend .
 
-However , the most thing that appealed for me the most is three models (Attribute,AttributeValue,AssignnedAttribute) , On my understanding
-we have attributes for products type (Attribute), and we want to consider the case when we have special attributes for the product that are out of product type scope so we made the model (AssignedAttribute) , still if I have a difficulty understanding why used three models for that , I hope I'm not missing something but it I believe having only Attribute Value and adding properites to this model in needed so would be sufficient .
-
-//
-In our models we are embedding docuemnt on others so we defince , and that can lead to having large documents which can cause to problems of different ways , a way to solve that is to subset pattern to only access data which is required and that can lead to the whole document .
-(based on mongodb manual
- https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-one-relationships-between-documents/)
-
