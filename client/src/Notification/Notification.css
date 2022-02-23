@@ -1,0 +1,12 @@
+.notification{
+    animation: show 1s ease-out 
+}
+
+@keyframes show {
+    0%{
+        transform: translateX(500px) ;
+    }
+    100%{
+        transform: translateX(0px) ;
+    }
+}
