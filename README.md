@@ -9,8 +9,10 @@ This is my submission for the technical challenge , below I'll be explaining how
 
 Client is live on :
 https://releasin-challenge.vercel.app
-Backend is linve on :
+
+Backend is live on :
 https://releasin-server.onrender.com
+
 The backend server might take time to start (free plan).
 
 ## Technologies & Tools
