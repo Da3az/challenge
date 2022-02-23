@@ -55,13 +55,19 @@ $ npm run server
 
 //Now the backend server should br running on port 5000 .
 ```
-6. The Front-end
+6.Add the client .env
+```
+Create .env file in the client folder and add the next line to it
+$ REACT_APP_SERVER=<back-end-url>
+If not changed the back-end server is running on http://localhost:5000
+```
+7. Run the client server
 ```
 $ cd ../client
 $ npm install
 $ npm run start
 
-//The front end is ready on port 3000.
+The front end is ready on port 3000.
 ```
 
 ## API Endpoints
