@@ -94,7 +94,7 @@ productRouter.post('/delete',(req,res)=>{
   const id = req.body.id
   Product.deleteOne({_id: id})
       .then(() => res.json({
-        type:"error",
+        type:"success",
         message:"Item deleted successfully"
       }))
       .catch(err => res.json({
