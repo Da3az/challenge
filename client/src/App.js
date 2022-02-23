@@ -8,19 +8,19 @@ import axios from 'axios';
 function App() {
 
   const [productTypes,setProductTypes] = useState([])
-
+  const [refreshTypes,setRefreshTypes] = useState(false)
 
   useEffect(() => {
     axios.get(process.env.REACT_APP_SERVER+'/productType')
             .then( ({data}) => setProductTypes(data))
             .catch(err => console.log('err on finding productTypes',err))
-  })
+  },[refreshTypes])
 
   return (
     <div className='app '>
       <Nav />
       <Product productTypes={productTypes} />
-      <ProductType productTypes={productTypes} />
+      <ProductType setRefreshTypes={() => setRefreshTypes(state => !state)} productTypes={productTypes} />
     </div>
   );
 }

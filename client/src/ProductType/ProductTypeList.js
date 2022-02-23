@@ -6,7 +6,7 @@ import AddProductTypeForm from "./AddProductTypeForm";
 import Notification from "../Notification"; 
 
 
-export default function ProductTypeList({productTypes}) {
+export default function ProductTypeList({setRefreshTypes,productTypes}) {
     const [attributes,setAttributes] = useState([])
     const [open,setOpen] = useState(false)
     const [refresh,setRefresh] = useState(false)
@@ -36,7 +36,7 @@ export default function ProductTypeList({productTypes}) {
           {
             setNotification(res.data)
             setToast(true)
-            setRefresh((state) => !state)
+            setRefreshTypes()
           }
         )
         .catch(err => console.log('err on deleting productType',err))
@@ -50,12 +50,6 @@ export default function ProductTypeList({productTypes}) {
         }else{
             setSelected(id)
         }
-    }
-
-    async function alertFunction(open){
-      setTimeout(() => {
-        setOpen(open)
-      },100)
     }
 
     return (
@@ -132,7 +126,7 @@ export default function ProductTypeList({productTypes}) {
                         <tr >
                             <td colSpan={6}>
                                 <div className="flex w-12/12 m-auto" >
-                                    <ProductTypeForm setToast={(e) => setToast(e)} setNotification={(e) => setNotification(e)}  refresh={() => setRefresh(state => !state)} setSelected={setSelected} attributes={attributes} product={product} />
+                                    <ProductTypeForm setToast={(e) => setToast(e)} setNotification={(e) => setNotification(e)}  refresh={() => setRefreshTypes()} setSelected={setSelected} attributes={attributes} product={product} />
                                 </div>
                             </td>
                         </tr>

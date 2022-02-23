@@ -7,7 +7,6 @@ export default function ProductTypeForm({setNotification,setToast,refresh,setSel
     
     const [name,setName] = useState(product.name)
     const [date,setDate] = useState(product.created_at)
-    const [type,setType] = useState(product.productType)
     const [attrs,setAttrs] = useState([...product.attributes])
     const [open,setOpen] = useState(false)
     const [addItem,setAddItem] = useState(attributes[0])
