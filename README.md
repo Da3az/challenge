@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# Technical Assignment.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="githubImg/releasinjpg"/>
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
 
-### `npm start`
+This is my submission for the technical challenge , below I'll be explaining how to set up this project and more .
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies & Tools
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Front-end:
 
-### `npm test`
+* React
+* TailwindCSS
+* Axios
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend and Databse:
 
-### `npm run build`
+* Node/ExpressJS
+* Mongoose
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation and Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Requirements:
 
-### `npm run eject`
+* Node.js installed
+* Mongodb connection
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Steps:
+1. Clone repo on your local machine:
+```
+$ git clone git@github.com:Da3az/releasin-test.git
+```
+2. Install backend dependencies:
+```
+$ cd backend
+$ npm install
+```
+3. Setting MongoDB connection:
+```
+//Create .env file on the back-end foder and enter the mongodb connection string , with the name ATLAS_URI
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+$ ATLAS_URI=<connection_string>
+```
+4. Initiliaze dummy data
+```
+// The initValues.js file in the back-end folder will directly initialize data for the project, however you can remove it or comment the line 46 in server.js file
+$ initData()
+```
+5. Run the server
+```
+$ npm run server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+//Now the backend server should br running on port 5000 .
+```
+6. The Front-end
+```
+$ cd ../client
+$ npm install
+$ npm run start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+//The front end is ready on port 3000.
+```
 
-## Learn More
+## API Endpoints
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `GET`    | `/product`                             | Retrieve all products.                      |
+| `POST`   | `/product/update`                             | Update a product properties (product id is required).                       |
+| `POST`    | `/product/delete`                          | Delete a product (id is required)                       |
+| `POST`  | `/product/create`                          | Create a product .                 |
+| `GET`    | `/productType`                             | Retrieve all productTypes.                      |
+| `POST`   | `/productType/update`                             | Update a productType properties (product id is required).                       |
+| `POST`    | `/productType/delete`                          | Delete a productType (id is required)                       |
+| `POST`  | `/productType/create`                          | Create a productType . 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Ideas
 
-### Code Splitting
+// 
+From my personal view , I see that the modelling can be changed based on the type of database (Relational,NOSQL,Graph ..) used , and if there was a pricing plan  we should consider to make that so we have the best performance with the best price .
+And also We should consider what is the project aim .
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+//
+However , the most thing that appealed for me the most is three models (Attribute,AttributeValue,AssignnedAttribute) , On my understanding
+we have attributes for products type (Attribute), and we want to consider the case when we have special attributes for the product that are out of product type scope so we made the model (AssignedAttribute) , still if I have a difficulty understanding why used three models for that , I hope I'm not missing something but it I believe having only Attribute Value and adding properites to this model in needed so would be sufficient .
 
-### Analyzing the Bundle Size
+//
+In our models we are embedding docuemnt on others so we defince , and that can lead to having large documents which can cause to problems of different ways , a way to solve that is to subset pattern to only access data which is required and that can lead to the whole document .
+(based on mongodb manual
+ https://docs.mongodb.com/manual/tutorial/model-embedded-one-to-one-relationships-between-documents/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
