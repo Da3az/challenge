@@ -1,6 +1,6 @@
 # Technical Assignment.
 
-<img src="githubImg/releasinjpg"/>
+<img src="githubImg/releasin.png"/>
 
 ## Description
 
